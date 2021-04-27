@@ -111,6 +111,5 @@ scrapememore <- function(i) {
   # compile and return output
   description <- as.data.frame(cbind(chambres,annee,chauss,m2,terrasse,garage,cave,jardin,etage,ground))
   return(description)
-  
 }
 
