@@ -32,6 +32,8 @@ bindbindbind <- bindbindbind[is.na(index)==TRUE,]
 
 # merge masterfile with new data and overwrite
 masterfile <- rbind(masterfile,bindbindbind)
+dim(bindbindbind)
+dim(masterfile)
 write_rds(masterfile,"masterfile.rds")
 
 # run scrape me more
@@ -39,32 +41,34 @@ numberoflinks <- 1:dim(bindbindbind)[1]
 #head(scrapememore(7))
 templist <- lapply(numberoflinks,scrapememore)
 youscrapedit <- do.call("rbind",templist)
+#View(youscrapedit)
 
-#create indexscore
-bindbindbind$indexscore <- 1
-bindbindbind$indexscore <- bindbindbind$indexscore - ifelse(bindbindbind$cents!=TRUE,.2,0)
-bindbindbind$chambre[is.na(bindbindbind$chambre)==TRUE] <- -1
-bindbindbind$indexscore <- bindbindbind$indexscore - ifelse(bindbindbind$chambre!=3,.2,0)
-bindbindbind$terrasse[is.na(bindbindbind$terrasse)==TRUE] <- -1
-bindbindbind$indexscore <- bindbindbind$indexscore - ifelse(bindbindbind$terrasse!=1,.05,0)
-bindbindbind$chauss[is.na(bindbindbind$chauss)==TRUE] <- -1
-bindbindbind$ground[is.na(bindbindbind$ground)==TRUE] <- -1
-bindbindbind$etage[is.na(bindbindbind$etage)==TRUE] <- -1
-bindbindbind$indexscore <- bindbindbind$indexscore - ifelse(bindbindbind$chauss!=1&bindbindbind$ground!=1&bindbindbind$etage!=0,.1,0)
-bindbindbind$garage[is.na(bindbindbind$garage)==TRUE] <- -1
-bindbindbind$indexscore <- bindbindbind$indexscore - ifelse(bindbindbind$garage!=1,.05,0)
-bindbindbind$annee[is.na(bindbindbind$annee)==TRUE] <- -1
-bindbindbind$indexscore <- bindbindbind$indexscore - ifelse(bindbindbind$annee>1999,.1,0)
-bindbindbind$price <- str_trim(bindbindbind$price)
-bindbindbind$price[is.na(bindbindbind$price)==TRUE] <- "-9999999"
-bindbindbind$indexscore <- bindbindbind$indexscore - ifelse(nchar(bindbindbind$price)>7,.2,0)
-
-
-
-# compile, sort and save data
+# compile scraped dataset
 thatsit <- cbind(bindbindbind,youscrapedit)
+
+#create indexscore and sort by it
+thatsit$indexscore <- 1
+thatsit$indexscore <- thatsit$indexscore - ifelse(thatsit$cents!=TRUE,.2,0)
+thatsit$chambre[is.na(thatsit$chambre)==TRUE] <- -1
+thatsit$indexscore <- thatsit$indexscore - ifelse(thatsit$chambre!=3,.2,0)
+thatsit$terrasse[is.na(thatsit$terrasse)==TRUE] <- -1
+thatsit$indexscore <- thatsit$indexscore - ifelse(thatsit$terrasse!=1,.05,0)
+thatsit$chauss[is.na(thatsit$chauss)==TRUE] <- -1
+thatsit$ground[is.na(thatsit$ground)==TRUE] <- -1
+thatsit$etage[is.na(thatsit$etage)==TRUE] <- -1
+thatsit$indexscore <- thatsit$indexscore - ifelse(thatsit$chauss!=1&thatsit$ground!=1&thatsit$etage!=0,.1,0)
+thatsit$garage[is.na(thatsit$garage)==TRUE] <- -1
+thatsit$indexscore <- thatsit$indexscore - ifelse(thatsit$garage!=1,.05,0)
+thatsit$annee[is.na(thatsit$annee)==TRUE] <- -1
+thatsit$indexscore <- thatsit$indexscore - ifelse(thatsit$annee>1999,.1,0)
+thatsit$price <- str_trim(thatsit$price)
+thatsit$price[is.na(thatsit$price)==TRUE] <- "-9999999"
+thatsit$indexscore <- thatsit$indexscore - ifelse(nchar(thatsit$price)>7,.2,0)
 myorder <- order(-thatsit$indexscore)
 thatsit <- thatsit[myorder,]
+
+
+# save data
 myrdsfilename <- paste0("scrapedata_",substr(date(),9,10),substr(date(),5,7),substr(date(),21,24),".rds")
 mycsvfilename <- paste0("scrapedata_",substr(date(),9,10),substr(date(),5,7),substr(date(),21,24),".csv")
 mycsv2filename <- paste0("scrapedatacsv2_",substr(date(),9,10),substr(date(),5,7),substr(date(),21,24),".csv")
