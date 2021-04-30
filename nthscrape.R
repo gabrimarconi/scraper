@@ -71,7 +71,7 @@ thatsit <- thatsit[myorder,]
 # save data
 myrdsfilename <- paste0("scrapedata_",substr(date(),9,10),substr(date(),5,7),substr(date(),21,24),".rds")
 mycsvfilename <- paste0("scrapedata_",substr(date(),9,10),substr(date(),5,7),substr(date(),21,24),".csv")
-mycsv2filename <- paste0("scrapedatacsv2_",substr(date(),9,10),substr(date(),5,7),substr(date(),21,24),".csv")
 write_rds(thatsit,myrdsfilename)
 write_csv(thatsit,mycsvfilename)
-write_csv2(thatsit,mycsv2filename)
+
+
