@@ -48,22 +48,42 @@ thatsit <- cbind(bindbindbind,youscrapedit)
 
 #create indexscore and sort by it
 thatsit$indexscore <- 1
-thatsit$indexscore <- thatsit$indexscore - ifelse(thatsit$cents!=TRUE,.2,0)
+thatsit$indexscore <- thatsit$indexscore - ifelse(rowSums(is.na(thatsit))>1, .05, 0)
+thatsit$indexscore <- thatsit$indexscore - ifelse(rowSums(is.na(thatsit))>3, .05, 0)
+thatsit$indexscore <- thatsit$indexscore - ifelse(rowSums(is.na(thatsit))>4, .05, 0)
+thatsit$indexscore <- thatsit$indexscore - ifelse(thatsit$cents!=TRUE&thatsit$ville!=TRUE,.2,0)
+thatsit$indexscore <- thatsit$indexscore - ifelse(thatsit$ville==TRUE,.05,0)
 thatsit$chambre[is.na(thatsit$chambre)==TRUE] <- -1
-thatsit$indexscore <- thatsit$indexscore - ifelse(thatsit$chambre!=3,.2,0)
+thatsit$indexscore <- thatsit$indexscore - ifelse(thatsit$chambre!=3&thatsit$chambre!=4&thatsit$chambre!=5&thatsit$chambre!=2&thatsit$chambre!=-1,.2,0)
+thatsit$indexscore <- thatsit$indexscore - ifelse(thatsit$chambre==2,.1,0)
+thatsit$indexscore <- thatsit$indexscore - ifelse(thatsit$chambre==-1,.05,0)
 thatsit$terrasse[is.na(thatsit$terrasse)==TRUE] <- -1
-thatsit$indexscore <- thatsit$indexscore - ifelse(thatsit$terrasse!=1,.05,0)
+thatsit$indexscore <- thatsit$indexscore - ifelse(thatsit$terrasse!=1&thatsit$terrasse!=-1,.05,0)
 thatsit$chauss[is.na(thatsit$chauss)==TRUE] <- -1
 thatsit$ground[is.na(thatsit$ground)==TRUE] <- -1
 thatsit$etage[is.na(thatsit$etage)==TRUE] <- -1
 thatsit$indexscore <- thatsit$indexscore - ifelse(thatsit$chauss!=1&thatsit$ground!=1&thatsit$etage!=0,.1,0)
 thatsit$garage[is.na(thatsit$garage)==TRUE] <- -1
-thatsit$indexscore <- thatsit$indexscore - ifelse(thatsit$garage!=1,.05,0)
+thatsit$indexscore <- thatsit$indexscore - ifelse(thatsit$garage!=1&thatsit$garage!=-1,.05,0)
 thatsit$annee[is.na(thatsit$annee)==TRUE] <- -1
-thatsit$indexscore <- thatsit$indexscore - ifelse(thatsit$annee>1999,.1,0)
+thatsit$indexscore <- thatsit$indexscore - ifelse(thatsit$annee<2000 & thatsit$annee!=-1,.1,0)
+thatsit$indexscore <- thatsit$indexscore - ifelse(thatsit$annee<1990 & thatsit$annee!=-1,.05,0)
+thatsit$indexscore <- thatsit$indexscore - ifelse(thatsit$annee<1980 & thatsit$annee!=-1,.05,0)
 thatsit$price <- str_trim(thatsit$price)
-thatsit$price[is.na(thatsit$price)==TRUE] <- "-9999999"
-thatsit$indexscore <- thatsit$indexscore - ifelse(nchar(thatsit$price)>7,.2,0)
+thatsit$price[is.na(thatsit$price)==TRUE] <- "-99999999"
+thatsit$indexscore <- thatsit$indexscore - ifelse(nchar(str_trim(thatsit$price))!=7,.2,0)
+thatsit$indexscore <- thatsit$indexscore - ifelse(nchar(str_trim(thatsit$price))==7 & substr(str_trim(thatsit$price),1,1)==9,.1,0)
+thatsit$indexscore <- thatsit$indexscore - ifelse(nchar(str_trim(thatsit$price))==9 & substr(str_trim(thatsit$price),1,1)!=1,.2,0)
+thatsit$m2[is.na(thatsit$m2)==TRUE] <- "-999"
+extractfirst <- function(i) {
+  i[1]
+}
+temp <- as.matrix(lapply(strsplit(thatsit$m2, '[.]'),extractfirst))
+thatsit$indexscore <- thatsit$indexscore - ifelse(nchar(temp)==1|nchar(temp)==4|is.na(nchar(temp)),.1,0)
+thatsit$indexscore <- thatsit$indexscore - ifelse(nchar(temp)==2&str_detect(substr(temp,1,1),"([1-6])")==TRUE,.4,0)
+thatsit$indexscore <- thatsit$indexscore - ifelse(nchar(temp)==2&str_detect(substr(temp,1,1),"7")==TRUE,.2,0)
+thatsit$indexscore <- thatsit$indexscore - ifelse(nchar(temp)==2&str_detect(substr(temp,1,1),"8")==TRUE,.1,0)
+thatsit$indexscore <- thatsit$indexscore - ifelse(nchar(temp)==2&str_detect(substr(temp,1,1),"9")==TRUE,.05,0)
 myorder <- order(-thatsit$indexscore)
 thatsit <- thatsit[myorder,]
 

@@ -1,0 +1,39 @@
+date,texto,ville,cents,vente,price,link,pagenr,lastseen,chambres,annee,chauss,m2,terrasse,garage,cave,jardin,etage,ground,indexscore,chambre
+Thu May 20 18:17:42 2021,"Appartement à vendre à LUXEMBOURG-CENTS
+1HSSG",FALSE,TRUE,TRUE,995 000,https://www.immotop.lu/properties/used/apartment/2510080,263,,3,2006,0,117. C,0,1,0,0,-1,0,0.75,3
+Thu May 20 18:17:44 2021,"Appartement à vendre à LUXEMBOURG-CENTS
+1HSP7",FALSE,TRUE,TRUE,775 000,https://www.immotop.lu/properties/used/apartment/2509963,266,,2,-1,0,85. Ch,0,0,0,0,1,0,0.6,2
+Thu May 20 18:17:43 2021,"Duplex à vendre à LUXEMBOURG-BONNEVOIE
+1HSQA",FALSE,FALSE,TRUE,980 000,https://www.immotop.lu/properties/used/apartment/duplex/2510002,265,,3,2000,0,105. C,0,1,0,0,3,0,0.55,3
+Thu May 20 18:15:07 2021,"Maison mitoyenne à vendre à LUXEMBOURG-DOMMELDANGE
+1HSTV",FALSE,FALSE,TRUE,2 470 517.50,https://www.immotop.lu/properties/new/house/joint-house/2510131,79,,4,2021,1,200. C,0,0,0,0,-1,0,0.49999999999999994,4
+Thu May 20 18:15:07 2021,"Maison mitoyenne à vendre à LUXEMBOURG-DOMMELDANGE
+1HSSP",FALSE,FALSE,TRUE,2 470 517.50,https://www.immotop.lu/properties/new/house/joint-house/2510089,79,,4,2021,1,200. C,0,0,0,0,-1,0,0.49999999999999994,4
+Thu May 20 18:17:29 2021,"Maison jumelée à vendre à LUXEMBOURG-DOMMELDANGE
+1HTH4",FALSE,FALSE,TRUE,2 798 567.50,https://www.immotop.lu/properties/new/house/semi-detached-house/2510968,244,,4,2021,1,200. C,0,0,0,0,-1,0,0.49999999999999994,4
+Thu May 20 18:17:41 2021,"Maison mitoyenne à vendre à LUXEMBOURG-DOMMELDANGE
+1HSUD",FALSE,FALSE,TRUE,2 470 517.50,https://www.immotop.lu/properties/new/house/joint-house/2510149,262,,4,2021,1,200. C,0,0,0,0,-1,0,0.49999999999999994,4
+Thu May 20 18:18:38 2021,"Appartement à vendre à LUXEMBOURG-EICH
+1HS4P",FALSE,FALSE,TRUE,998 000,https://www.immotop.lu/properties/used/apartment/2509225,333,,3,1993,0,117. C,0,0,0,0,2,0,0.4,3
+Thu May 20 18:17:18 2021,"Appartement à vendre à LUXEMBOURG-GASPERICH
+1HTLV",FALSE,FALSE,TRUE,991 000,https://www.immotop.lu/properties/used/apartment/2511139,233,,2,2006,0,82. Ch,0,1,0,0,1,0,0.3500000000000001,2
+Thu May 20 18:14:12 2021,"Appartement à vendre à LUXEMBOURG-GASPERICH
+1HS4J",FALSE,FALSE,TRUE,1 040 000,https://www.immotop.lu/properties/used/apartment/2509219,18,,2,2006,0,101.75,0,1,0,0,3,0,0.35000000000000003,2
+Thu May 20 18:14:04 2021,"Penthouse à vendre à LUXEMBOURG-CESSANGE
+1HSJM",FALSE,FALSE,TRUE,2 130 982,https://www.immotop.lu/properties/new/apartment/penthouse/2509762,10,,3,-1,1,157.67,0,0,0,0,3,0,0.29999999999999993,3
+Thu May 20 18:17:16 2021,"Maison à vendre à LUXEMBOURG-KOHLENBERG
+1HTN7",FALSE,FALSE,TRUE,2 850 000,https://www.immotop.lu/properties/new/house/2511187,231,,4,2021,1,255. C,0,0,0,0,-1,0,0.29999999999999993,4
+Thu May 20 18:17:43 2021,"Maison jumelée à vendre à LUXEMBOURG-BONNEVOIE
+1HSQM",FALSE,FALSE,TRUE,1 390 000,https://www.immotop.lu/properties/used/house/semi-detached-house/2510014,265,,5,1932,0,185. C,0,1,0,0,2,0,0.25,5
+Thu May 20 18:17:58 2021,"Duplex à vendre à LUXEMBOURG-HOLLERICH
+1HSLG",FALSE,FALSE,TRUE,1 095 000,https://www.immotop.lu/properties/used/apartment/duplex/2509828,279,,3,1984,0,110. C,0,0,0,0,-1,0,0.25,3
+Thu May 20 18:17:21 2021,"Appartement à vendre à LUXEMBOURG-LIMPERTSBERG
+1HTLA",FALSE,FALSE,TRUE,695 000,https://www.immotop.lu/properties/used/apartment/2511118,234,,1,-1,1,49. Ch,0,1,0,0,2,0,0.15000000000000002,1
+Thu May 20 18:17:45 2021,"Maison à vendre à LUXEMBOURG-KIRCHBERG
+1HSOM",FALSE,FALSE,TRUE,2 990 000,https://www.immotop.lu/properties/used/house/2509942,267,,4,-1,0,240. C,0,0,0,0,-1,0,0.1499999999999999,4
+Thu May 20 18:13:59 2021,"Projet futur à vendre à LUXEMBOURG-DOMMELDANGE
+1HTHV",FALSE,FALSE,TRUE,de 2 470 518  à 2 798 568,https://www.immotop.lu/properties/new/allotment/future-project/2510995,5,,NA,-1,0,-999,0,0,0,0,-1,0,0.14999999999999988,-1
+Thu May 20 18:17:56 2021,"Studio à vendre à LUXEMBOURG-BELAIR
+1HSMD",FALSE,FALSE,TRUE,687 366,https://www.immotop.lu/properties/used/apartment/flat/2509861,278,,NA,-1,0,42.43.,0,0,0,0,1,0,0.09999999999999992,-1
+Thu May 20 18:17:18 2021,"Maison à vendre à LUXEMBOURG-BEGGEN
+1HTLJ",FALSE,FALSE,TRUE,60 000,https://www.immotop.lu/properties/used/house/2511127,233,,NA,-1,0,"60. -""",0,0,0,0,-1,0,-0.10000000000000009,-1

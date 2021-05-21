@@ -27,7 +27,7 @@ scrapeyourass <- function(i) {
   
   #ad title
   gross_ads <- html_nodes(page, ".title-anons")
-  clean_ads <- as.data.frame(html_text(gross_ads))
+  clean_ads <- as.data.frame(str_trim(html_text(gross_ads)))
   colnames(clean_ads) <- "cleanads"
 
   # luxembourg-ville
@@ -64,6 +64,7 @@ scrapeyourass <- function(i) {
   dataset <- cbind(date(),clean_ads,clean_price,allinks,pagenr,"")
   colnames(dataset) <- c("date","texto","ville","cents","vente","price","link","pagenr","lastseen")
   dataset <- dataset[dataset$ville==TRUE & dataset$vente==TRUE,]
+  dataset$ville <- str_detect(dataset$texto,"LUXEMBOURG-CENTRE|LUXEMBOURG-GARE")
   
   return(dataset)
 }
