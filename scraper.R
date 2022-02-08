@@ -14,6 +14,8 @@ if (file.exists("generalised/failed_downloads.csv")==F) {
   write.csv(failed_downloads,"generalised/failed_downloads.csv", row.names = F)
 }
 
+webpage_i1 <- paste0("https://www.immotop.lu/search/index1.html")
+
 #page <- read_html("https://dataquestio.github.io/web-scraping-pages/simple.html")
 #str(page)
 #html_nodes(page, "p")

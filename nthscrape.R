@@ -1,7 +1,7 @@
 
 source("scraper.R")
 
-### ingestion with first-stage deduplication 
+### ingestion with first-stage deduplication
 
 #load masterfile_generalised
 masterfile_generalised <- read_rds("generalised/masterfile_generalised.rds")
@@ -53,7 +53,7 @@ write_rds(thatsit,myrdsfilename)
 dim(thatsit)
 thatsit$date[1]
 sum(as.numeric(thatsit$emphyt), na.rm = T)
-thatsit$link[thatsit$chauss==1&str_detect(thatsit$texto,"LUXEMOURG-")==T]
-thatsit$link[thatsit$chambre==3&nchar(thatsit$price)==8&str_detect(thatsit$texto,"LUXEMOURG-")==T]
+thatsit$link[thatsit$chauss==1&str_detect(thatsit$texto,"LUXEMBOURG-")==T]
+thatsit$link[thatsit$chambre==3&nchar(thatsit$price)==8&str_detect(thatsit$texto,"LUXEMBOURG-")==T]
 
 
