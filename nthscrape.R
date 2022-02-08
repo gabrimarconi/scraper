@@ -7,7 +7,7 @@ source("scraper.R")
 masterfile <- read_rds("masterfile.rds")
 
 #find number of pages
-webpage <- paste0("https://www.immotop.lu/search/index1.html")
+webpage <- webpage_i1
 tempdata <- as.data.frame(read_lines(webpage, n_max=-1))
 colnames(tempdata) <- "texto"
 tempdata$itemsnr <- str_detect(tempdata$texto,"var pInfoCalc=.{1}") 
